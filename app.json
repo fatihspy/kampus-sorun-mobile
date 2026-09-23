@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Kampüs Sorun Bildirim",
+    "slug": "kampus-sorun-bildirim",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Kampüsteki sorunların fotoğrafını çekebilmek için kameraya erişim gerekiyor.",
+        "NSLocationWhenInUseUsageDescription": "Sorunun konumunu otomatik ekleyebilmek için konumunuza ihtiyacımız var."
+      }
+    },
+    "android": {
+      "package": "com.fatihspy.kampussorunbildirim",
+      "permissions": ["CAMERA", "ACCESS_FINE_LOCATION"]
+    }
+  }
+}
