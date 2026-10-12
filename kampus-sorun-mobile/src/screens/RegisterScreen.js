@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvo
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
 import { getErrorMessage } from '../api/client';
+import LogoLockup from '../components/LogoLockup';
 
 export default function RegisterScreen({ navigation }) {
   const { register } = useAuth();
@@ -29,9 +30,7 @@ export default function RegisterScreen({ navigation }) {
   return (
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        <View style={styles.logoCircle}>
-          <Ionicons name="person-add" size={30} color="#fff" />
-        </View>
+        <LogoLockup size={56} style={{ marginBottom: 16 }} />
         <Text style={styles.title}>Hesap Oluştur</Text>
         <Text style={styles.subtitle}>Sadece @ogrenci.ege.edu.tr veya @ege.edu.tr uzantılı e-posta</Text>
 

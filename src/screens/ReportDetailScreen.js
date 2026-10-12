@@ -9,8 +9,10 @@ import {
   TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  Alert
 } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import api, { getErrorMessage, resolveImageUrl } from '../api/client';
 import { useAuth } from '../context/AuthContext';
@@ -56,6 +58,10 @@ export default function ReportDetailScreen({ route }) {
   const [commentText, setCommentText] = useState('');
   const [postingComment, setPostingComment] = useState(false);
   const [voting, setVoting] = useState(false);
+  const [updatingStatus, setUpdatingStatus] = useState(false);
+  const [resolving, setResolving] = useState(false);
+
+  const isStaff = user?.role === 'personel' || user?.role === 'yonetici';
 
   const fetchReport = async () => {
     try {
@@ -72,6 +78,51 @@ export default function ReportDetailScreen({ route }) {
   useEffect(() => {
     fetchReport();
   }, [id]);
+
+  const updateStatus = async (newStatus) => {
+    setUpdatingStatus(true);
+    try {
+      await api.patch(`/reports/${id}/status`, { status: newStatus });
+      await fetchReport();
+    } catch (err) {
+      Alert.alert('Güncellenemedi', getErrorMessage(err));
+    } finally {
+      setUpdatingStatus(false);
+    }
+  };
+
+  const resolveWithPhoto = async () => {
+    try {
+      const { status } = await ImagePicker.requestCameraPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert('Kamera izni gerekli', 'Çözüm fotoğrafı çekebilmek için kamera izni vermelisin.');
+        return;
+      }
+
+      const result = await ImagePicker.launchCameraAsync({ quality: 0.6 });
+      if (result.canceled) return;
+
+      setResolving(true);
+      const photo = result.assets[0];
+      const formData = new FormData();
+      formData.append('photo', {
+        uri: photo.uri,
+        name: 'resolved.jpg',
+        type: 'image/jpeg'
+      });
+
+      await api.post(`/reports/${id}/resolve-photo`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+
+      await fetchReport();
+      Alert.alert('Tamamlandı', 'Rapor çözüldü olarak işaretlendi.');
+    } catch (err) {
+      Alert.alert('İşlem başarısız', getErrorMessage(err));
+    } finally {
+      setResolving(false);
+    }
+  };
 
   const toggleUpvote = async () => {
     if (!report || voting) return;
@@ -176,6 +227,49 @@ export default function ReportDetailScreen({ route }) {
             />
           </View>
 
+          {isStaff && report.status !== 'cozuldu' ? (
+            <View style={styles.staffCard}>
+              <View style={styles.sectionLabelRow}>
+                <Ionicons name="construct-outline" size={18} color="#1e3a8a" />
+                <Text style={styles.staffTitle}>Personel İşlemleri</Text>
+              </View>
+
+              {report.status === 'yeni' ? (
+                <TouchableOpacity
+                  style={styles.staffSecondaryBtn}
+                  onPress={() => updateStatus('inceleniyor')}
+                  disabled={updatingStatus}
+                  activeOpacity={0.85}
+                >
+                  {updatingStatus ? (
+                    <ActivityIndicator size="small" color="#1e3a8a" />
+                  ) : (
+                    <>
+                      <Ionicons name="time-outline" size={16} color="#1e3a8a" style={{ marginRight: 6 }} />
+                      <Text style={styles.staffSecondaryBtnText}>İnceleniyor olarak işaretle</Text>
+                    </>
+                  )}
+                </TouchableOpacity>
+              ) : null}
+
+              <TouchableOpacity
+                style={[styles.staffPrimaryBtn, resolving && { opacity: 0.6 }]}
+                onPress={resolveWithPhoto}
+                disabled={resolving}
+                activeOpacity={0.85}
+              >
+                {resolving ? (
+                  <ActivityIndicator size="small" color="#fff" />
+                ) : (
+                  <Ionicons name="camera" size={16} color="#fff" style={{ marginRight: 8 }} />
+                )}
+                <Text style={styles.staffPrimaryBtnText}>
+                  {resolving ? 'Yükleniyor...' : 'Fotoğraf Çekip Çözüldü İşaretle'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          ) : null}
+
           {report.resolvedPhotoUrl ? (
             <View style={styles.resolvedSection}>
               <View style={styles.sectionLabelRow}>
@@ -276,6 +370,37 @@ const styles = StyleSheet.create({
   infoValue: { fontSize: 14, color: '#222', fontWeight: '500' },
 
   sectionLabelRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10, gap: 6 },
+
+  staffCard: {
+    backgroundColor: '#eef2ff',
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#dbe4ff'
+  },
+  staffTitle: { fontWeight: '700', fontSize: 14, color: '#1e3a8a' },
+  staffSecondaryBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#1e3a8a',
+    borderRadius: 10,
+    paddingVertical: 12,
+    marginBottom: 10,
+    backgroundColor: '#fff'
+  },
+  staffSecondaryBtnText: { color: '#1e3a8a', fontWeight: '700', fontSize: 13 },
+  staffPrimaryBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#16a34a',
+    borderRadius: 10,
+    paddingVertical: 14
+  },
+  staffPrimaryBtnText: { color: '#fff', fontWeight: '700', fontSize: 14 },
 
   resolvedSection: { marginBottom: 24 },
   resolvedLabel: { fontWeight: '700', fontSize: 14, color: '#16a34a' },

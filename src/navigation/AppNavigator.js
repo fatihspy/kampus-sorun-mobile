@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Image, StyleSheet } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 import LoginScreen from '../screens/LoginScreen';
@@ -12,6 +12,16 @@ import ReportDetailScreen from '../screens/ReportDetailScreen';
 import MainTabs from './MainTabs';
 
 const Stack = createNativeStackNavigator();
+
+function HeaderLogo() {
+  return (
+    <Image
+      source={require('../../assets/logos/ege-universitesi.png')}
+      style={styles.headerLogo}
+      resizeMode="contain"
+    />
+  );
+}
 
 function AuthStack() {
   return (
@@ -29,7 +39,8 @@ function MainStack() {
       screenOptions={{
         headerStyle: { backgroundColor: '#1e3a8a' },
         headerTintColor: '#fff',
-        headerTitleStyle: { fontWeight: '700' }
+        headerTitleStyle: { fontWeight: '700' },
+        headerRight: () => <HeaderLogo />
       }}
     >
       <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
@@ -46,6 +57,16 @@ function MainStack() {
     </Stack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  headerLogo: {
+    width: 32,
+    height: 32,
+    marginRight: 12,
+    backgroundColor: '#fff',
+    borderRadius: 16
+  }
+});
 
 export default function AppNavigator() {
   const { user, loading } = useAuth();

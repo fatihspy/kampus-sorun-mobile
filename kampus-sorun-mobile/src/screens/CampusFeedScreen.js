@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import api, { resolveImageUrl, getErrorMessage } from '../api/client';
+import LogoLockup from '../components/LogoLockup';
 
 const STATUS_LABELS = { yeni: 'Yeni', inceleniyor: 'İnceleniyor', cozuldu: 'Çözüldü' };
 const STATUS_COLORS = { yeni: '#dc2626', inceleniyor: '#d97706', cozuldu: '#16a34a' };
@@ -58,6 +59,8 @@ export default function CampusFeedScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      <LogoLockup size={26} style={styles.topLogos} />
+
       <View style={styles.header}>
         <Text style={styles.title}>Kampüs Akışı</Text>
         <View style={styles.sortToggle}>
@@ -145,6 +148,7 @@ export default function CampusFeedScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
+  topLogos: { marginTop: 4, marginBottom: 4 },
   header: { paddingHorizontal: 20, paddingTop: 8, paddingBottom: 12 },
   title: { fontSize: 20, fontWeight: '700', marginBottom: 12 },
   sortToggle: { flexDirection: 'row', backgroundColor: '#f0f0f0', borderRadius: 10, padding: 3, alignSelf: 'flex-start' },

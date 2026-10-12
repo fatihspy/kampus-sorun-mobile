@@ -1,0 +1,314 @@
+--------- beginning of main
+09-25 23:56:16.941   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 1 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:19.373 15673 15673 E libnfc_nci: Timeout waiting for NFC AIDL service (future).
+09-25 23:56:19.373 15673 15673 E libnfc_nci: Exit current process to recover.
+09-25 23:56:19.944   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 2 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:20.103 15718 15718 E android.hardware.uwb: uwb_default_hal: panicked at hardware/interfaces/uwb/aidl/default/src/uwb_chip.rs:56:14:
+09-25 23:56:20.103 15718 15718 E android.hardware.uwb: failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }
+--------- beginning of crash
+09-25 23:56:20.103 15718 15718 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 15718 (android.hardwar), pid 15718 (android.hardwar)
+09-25 23:56:20.114 15726 15726 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+09-25 23:56:20.114 15726 15726 F DEBUG   : Build fingerprint: 'google/sdk_gphone16k_x86_64/emu64xa16k:17/CP41.260828.004.A7/16296984:user/dev-keys'
+09-25 23:56:20.114 15726 15726 F DEBUG   : Kernel Release: '6.12.81-android16-6-g4f69fc7b210c-ab16167562'
+09-25 23:56:20.114 15726 15726 F DEBUG   : Revision: '0'
+09-25 23:56:20.114 15726 15726 F DEBUG   : ABI: 'x86_64'
+09-25 23:56:20.114 15726 15726 F DEBUG   : Timestamp: 2026-09-25 23:56:20.110146561+0000
+09-25 23:56:20.114 15726 15726 F DEBUG   : Process uptime: 1s
+09-25 23:56:20.114 15726 15726 F DEBUG   : Page size: 16384 bytes
+09-25 23:56:20.114 15726 15726 F DEBUG   : Executable: /vendor/bin/hw/android.hardware.uwb-service
+09-25 23:56:20.114 15726 15726 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+09-25 23:56:20.114 15726 15726 F DEBUG   : pid: 15718, ppid: 1, tid: 15718, name: android.hardwar  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+09-25 23:56:20.114 15726 15726 F DEBUG   : uid: 1083
+09-25 23:56:20.114 15726 15726 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+09-25 23:56:20.114 15726 15726 F DEBUG   : Abort message: 'failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }'
+09-25 23:56:20.114 15726 15726 F DEBUG   : 
+09-25 23:56:20.114 15726 15726 F DEBUG   :     rax 0000000000000000  rbx 0000000000003d66  rcx 000071b78dc7f06d  rdx 0000000000000006
+09-25 23:56:20.114 15726 15726 F DEBUG   :     r8  00007ffde822d5e0  r9  00007ffde822d5e0  r10 00007ffde822d3a0  r11 0000000000000207
+09-25 23:56:20.114 15726 15726 F DEBUG   :     r12 0000000000000000  r13 00007ffde822d540  r14 0000000000003d66  r15 00007ffde822d3a0
+09-25 23:56:20.114 15726 15726 F DEBUG   :     rdi 0000000000003d66  rsi 0000000000003d66
+09-25 23:56:20.114 15726 15726 F DEBUG   :     rbp 00007ffde822d450  rsp 00007ffde822d3a0  rip 000071b78dc7f06d  err 0000000000000000
+09-25 23:56:20.114 15726 15726 F DEBUG   : 
+09-25 23:56:20.114 15726 15726 F DEBUG   : 18 total frames
+09-25 23:56:20.114 15726 15726 F DEBUG   : backtrace:
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #00 pc 000000000005b06d  /apex/com.android.runtime/lib64/bionic/libc.so (abort+189) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #01 pc 000000000003ed09  /vendor/bin/hw/android.hardware.uwb-service (std::sys::pal::unix::abort_internal+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #02 pc 000000000003c488  /vendor/bin/hw/android.hardware.uwb-service (std::process::abort+8) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #03 pc 0000000000038e89  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_abort+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #04 pc 000000000002d262  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_start_panic+18) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #05 pc 0000000000038e79  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_panic+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #06 pc 000000000003c72f  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_with_hook+260) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #07 pc 0000000000038516  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_handler::{closure#0}+70) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #08 pc 0000000000038eab  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_begin_unwind+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #09 pc 00000000000253db  /vendor/bin/hw/android.hardware.uwb-service (core::panicking::panic_fmt+43) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #10 pc 0000000000025261  /vendor/bin/hw/android.hardware.uwb-service (core::result::unwrap_failed+81) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #11 pc 00000000000641af  /vendor/bin/hw/android.hardware.uwb-service (<uwb_default_hal::uwb_chip::UwbChip>::new::{closure#0}+7999) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #12 pc 000000000006865a  /vendor/bin/hw/android.hardware.uwb-service (<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>, <uwb_default_hal::uwb::Uwb>::from_chips<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>>::{closure#0}> as core::iter::traits::iterator::Iterator>::next+3434) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #13 pc 0000000000065c77  /vendor/bin/hw/android.hardware.uwb-service (uwb_default_hal::main+791) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #14 pc 00000000000619fb  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start::<core::result::Result<(), anyhow::Error>>::{closure#0}+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #15 pc 000000000003bce6  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start_internal+534) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #16 pc 000000000006b193  /vendor/bin/hw/android.hardware.uwb-service (main+51) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:20.114 15726 15726 F DEBUG   :       #17 pc 00000000000c3c10  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+112) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:20.114 15726 15726 F DEBUG   : 
+09-25 23:56:20.114 15726 15726 F DEBUG   : Note: To display stack pointer information, use the pbtombstone tool:
+09-25 23:56:20.114 15726 15726 F DEBUG   :         pbtombstone --display-sp tombstone_XX.pb
+--------- beginning of system
+09-25 23:56:20.116   701   840 E NativeTombstoneManager: Tombstone's UID (1083) not an app, ignoring
+09-25 23:56:20.117   395   395 E tombstoned: Tombstone written to: tombstone_12
+09-25 23:56:22.451 15703 15703 E libnfc_nci: Timeout waiting for NFC AIDL service (future).
+09-25 23:56:22.452 15703 15703 E libnfc_nci: Exit current process to recover.
+09-25 23:56:22.947   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 2 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:24.851  1410  1560 E SatelliteController: isSatelliteEnabled: mIsSatelliteEnabled=null
+09-25 23:56:25.107 15754 15754 E android.hardware.uwb: uwb_default_hal: panicked at hardware/interfaces/uwb/aidl/default/src/uwb_chip.rs:56:14:
+09-25 23:56:25.107 15754 15754 E android.hardware.uwb: failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }
+09-25 23:56:25.107 15754 15754 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 15754 (android.hardwar), pid 15754 (android.hardwar)
+09-25 23:56:25.120 15762 15762 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+09-25 23:56:25.121 15762 15762 F DEBUG   : Build fingerprint: 'google/sdk_gphone16k_x86_64/emu64xa16k:17/CP41.260828.004.A7/16296984:user/dev-keys'
+09-25 23:56:25.121 15762 15762 F DEBUG   : Kernel Release: '6.12.81-android16-6-g4f69fc7b210c-ab16167562'
+09-25 23:56:25.121 15762 15762 F DEBUG   : Revision: '0'
+09-25 23:56:25.121 15762 15762 F DEBUG   : ABI: 'x86_64'
+09-25 23:56:25.121 15762 15762 F DEBUG   : Timestamp: 2026-09-25 23:56:25.116595358+0000
+09-25 23:56:25.121 15762 15762 F DEBUG   : Process uptime: 1s
+09-25 23:56:25.121 15762 15762 F DEBUG   : Page size: 16384 bytes
+09-25 23:56:25.121 15762 15762 F DEBUG   : Executable: /vendor/bin/hw/android.hardware.uwb-service
+09-25 23:56:25.121 15762 15762 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+09-25 23:56:25.121 15762 15762 F DEBUG   : pid: 15754, ppid: 1, tid: 15754, name: android.hardwar  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+09-25 23:56:25.121 15762 15762 F DEBUG   : uid: 1083
+09-25 23:56:25.121 15762 15762 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+09-25 23:56:25.121 15762 15762 F DEBUG   : Abort message: 'failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }'
+09-25 23:56:25.121 15762 15762 F DEBUG   : 
+09-25 23:56:25.121 15762 15762 F DEBUG   :     rax 0000000000000000  rbx 0000000000003d8a  rcx 00007b781f92f06d  rdx 0000000000000006
+09-25 23:56:25.121 15762 15762 F DEBUG   :     r8  00007ff4e4e4b070  r9  00007ff4e4e4b070  r10 00007ff4e4e4ae30  r11 0000000000000207
+09-25 23:56:25.121 15762 15762 F DEBUG   :     r12 0000000000000000  r13 00007ff4e4e4afd0  r14 0000000000003d8a  r15 00007ff4e4e4ae30
+09-25 23:56:25.121 15762 15762 F DEBUG   :     rdi 0000000000003d8a  rsi 0000000000003d8a
+09-25 23:56:25.121 15762 15762 F DEBUG   :     rbp 00007ff4e4e4aee0  rsp 00007ff4e4e4ae30  rip 00007b781f92f06d  err 0000000000000000
+09-25 23:56:25.121 15762 15762 F DEBUG   : 
+09-25 23:56:25.121 15762 15762 F DEBUG   : 18 total frames
+09-25 23:56:25.121 15762 15762 F DEBUG   : backtrace:
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #00 pc 000000000005b06d  /apex/com.android.runtime/lib64/bionic/libc.so (abort+189) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #01 pc 000000000003ed09  /vendor/bin/hw/android.hardware.uwb-service (std::sys::pal::unix::abort_internal+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #02 pc 000000000003c488  /vendor/bin/hw/android.hardware.uwb-service (std::process::abort+8) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #03 pc 0000000000038e89  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_abort+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #04 pc 000000000002d262  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_start_panic+18) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #05 pc 0000000000038e79  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_panic+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #06 pc 000000000003c72f  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_with_hook+260) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #07 pc 0000000000038516  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_handler::{closure#0}+70) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #08 pc 0000000000038eab  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_begin_unwind+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #09 pc 00000000000253db  /vendor/bin/hw/android.hardware.uwb-service (core::panicking::panic_fmt+43) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #10 pc 0000000000025261  /vendor/bin/hw/android.hardware.uwb-service (core::result::unwrap_failed+81) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #11 pc 00000000000641af  /vendor/bin/hw/android.hardware.uwb-service (<uwb_default_hal::uwb_chip::UwbChip>::new::{closure#0}+7999) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #12 pc 000000000006865a  /vendor/bin/hw/android.hardware.uwb-service (<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>, <uwb_default_hal::uwb::Uwb>::from_chips<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>>::{closure#0}> as core::iter::traits::iterator::Iterator>::next+3434) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #13 pc 0000000000065c77  /vendor/bin/hw/android.hardware.uwb-service (uwb_default_hal::main+791) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #14 pc 00000000000619fb  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start::<core::result::Result<(), anyhow::Error>>::{closure#0}+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #15 pc 000000000003bce6  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start_internal+534) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #16 pc 000000000006b193  /vendor/bin/hw/android.hardware.uwb-service (main+51) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:25.121 15762 15762 F DEBUG   :       #17 pc 00000000000c3c10  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+112) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:25.121 15762 15762 F DEBUG   : 
+09-25 23:56:25.121 15762 15762 F DEBUG   : Note: To display stack pointer information, use the pbtombstone tool:
+09-25 23:56:25.121 15762 15762 F DEBUG   :         pbtombstone --display-sp tombstone_XX.pb
+09-25 23:56:25.121   395   395 E tombstoned: Tombstone written to: tombstone_13
+09-25 23:56:25.122   701   840 E NativeTombstoneManager: Tombstone's UID (1083) not an app, ignoring
+09-25 23:56:25.514 15735 15735 E libnfc_nci: Timeout waiting for NFC AIDL service (future).
+09-25 23:56:25.514 15735 15735 E libnfc_nci: Exit current process to recover.
+09-25 23:56:25.758   701  2796 E TransitionChain: Can't collect into a chain with no transition
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: FATAL EXCEPTION: pool-3-thread-1
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: Process: com.fatihspy.kampussorunbildirim, PID: 15780
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: java.lang.NoClassDefFoundError: Failed resolution of: Lexpo/modules/kotlin/types/AnyTypeProvider;
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.imagepicker.ImagePickerModule.definition(ImagePickerModule.kt:323)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.kotlin.ModuleHolder.<init>(ModuleHolder.kt:22)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.kotlin.ModuleRegistry.register(ModuleRegistry.kt:29)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.kotlin.ModuleRegistry.register(ModuleRegistry.kt:45)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.kotlin.AppContext.<init>(AppContext.kt:131)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.kotlin.KotlinInteropModuleRegistry.<init>(KotlinInteropModuleRegistry.kt:18)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.adapters.react.NativeModulesProxy.<init>(NativeModulesProxy.java:45)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.adapters.react.ModuleRegistryAdapter.getOrCreateNativeModulesProxy(ModuleRegistryAdapter.java:140)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.adapters.react.ModuleRegistryAdapter.createNativeModules(ModuleRegistryAdapter.java:65)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at expo.modules.ExpoModulesPackage.createNativeModules(ExpoModulesPackage.kt:35)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.ReactPackageTurboModuleManagerDelegate.initialize(ReactPackageTurboModuleManagerDelegate.kt:64)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.ReactPackageTurboModuleManagerDelegate.<init>(ReactPackageTurboModuleManagerDelegate.kt:42)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate.<init>(DefaultTurboModuleManagerDelegate.kt:35)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate.<init>(DefaultTurboModuleManagerDelegate.kt:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate$Builder.build(DefaultTurboModuleManagerDelegate.kt:63)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate$Builder.build(DefaultTurboModuleManagerDelegate.kt:43)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.ReactPackageTurboModuleManagerDelegate$Builder.build(ReactPackageTurboModuleManagerDelegate.kt:222)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.ReactInstance.<init>(ReactInstance.kt:183)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.ReactHostImpl.getOrCreateReactInstanceTask$lambda$45$lambda$41(ReactHostImpl.kt:1052)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.ReactHostImpl.$r8$lambda$SmdYI7igN6ETqUXjl3FigYM4DHc(ReactHostImpl.kt:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.ReactHostImpl$$ExternalSyntheticLambda43.then(D8$$SyntheticClass:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.completeImmediately$lambda$3(Task.kt:360)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.$r8$lambda$b7MTC0ufkn_2TjF4BGcNqGR9qK0(Task.kt:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Executors$ImmediateExecutor.execute(Executors.kt:41)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.completeImmediately(Task.kt:358)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.access$completeImmediately(Task.kt:254)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.continueWith(Task.kt:133)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.continueWith$default(Task.kt:117)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.onSuccess$lambda$12(Task.kt:176)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.$r8$lambda$l0wwo5AvbHxlwfI1R7CH_codxoo(Task.kt:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$$ExternalSyntheticLambda2.then(D8$$SyntheticClass:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.completeAfterTask$lambda$5(Task.kt:394)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.$r8$lambda$IPpysnehFwANEiW061YzapkMdoE(Task.kt:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion$$ExternalSyntheticLambda4.run(D8$$SyntheticClass:0)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1571)
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: Caused by: java.lang.ClassNotFoundException: expo.modules.kotlin.types.AnyTypeProvider
+09-25 23:56:25.809 15780 15803 E AndroidRuntime: 	... 38 more
+09-25 23:56:25.951   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 1 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:26.213   701  1190 E ConsumerBase: [ImageReader-864x1920f1m1-701-34] abandonLocked: ConsumerBase is abandoned!
+09-25 23:56:26.216   701  2181 E WindowOrganizerController: Attempting to externally change a non-organized container: Task{3bba07f #35 type=standard A=10233:com.fatihspy.kampussorunbildirim}={handlePackageUpdate:false,} playercount=2 taskorg=android.window.ITaskOrganizer$Stub$Proxy@77e3f51
+09-25 23:56:27.856   701  2799 E TransitionChain: Can't collect into a chain with no transition
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: FATAL EXCEPTION: pool-3-thread-1
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: Process: com.fatihspy.kampussorunbildirim, PID: 15838
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: java.lang.NoClassDefFoundError: Failed resolution of: Lexpo/modules/kotlin/types/AnyTypeProvider;
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.imagepicker.ImagePickerModule.definition(ImagePickerModule.kt:323)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.kotlin.ModuleHolder.<init>(ModuleHolder.kt:22)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.kotlin.ModuleRegistry.register(ModuleRegistry.kt:29)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.kotlin.ModuleRegistry.register(ModuleRegistry.kt:45)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.kotlin.AppContext.<init>(AppContext.kt:131)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.kotlin.KotlinInteropModuleRegistry.<init>(KotlinInteropModuleRegistry.kt:18)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.adapters.react.NativeModulesProxy.<init>(NativeModulesProxy.java:45)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.adapters.react.ModuleRegistryAdapter.getOrCreateNativeModulesProxy(ModuleRegistryAdapter.java:140)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.adapters.react.ModuleRegistryAdapter.createNativeModules(ModuleRegistryAdapter.java:65)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at expo.modules.ExpoModulesPackage.createNativeModules(ExpoModulesPackage.kt:35)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.ReactPackageTurboModuleManagerDelegate.initialize(ReactPackageTurboModuleManagerDelegate.kt:64)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.ReactPackageTurboModuleManagerDelegate.<init>(ReactPackageTurboModuleManagerDelegate.kt:42)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate.<init>(DefaultTurboModuleManagerDelegate.kt:35)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate.<init>(DefaultTurboModuleManagerDelegate.kt:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate$Builder.build(DefaultTurboModuleManagerDelegate.kt:63)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultTurboModuleManagerDelegate$Builder.build(DefaultTurboModuleManagerDelegate.kt:43)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.ReactPackageTurboModuleManagerDelegate$Builder.build(ReactPackageTurboModuleManagerDelegate.kt:222)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.ReactInstance.<init>(ReactInstance.kt:183)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.ReactHostImpl.getOrCreateReactInstanceTask$lambda$45$lambda$41(ReactHostImpl.kt:1052)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.ReactHostImpl.$r8$lambda$SmdYI7igN6ETqUXjl3FigYM4DHc(ReactHostImpl.kt:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.ReactHostImpl$$ExternalSyntheticLambda43.then(D8$$SyntheticClass:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.completeImmediately$lambda$3(Task.kt:360)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.$r8$lambda$b7MTC0ufkn_2TjF4BGcNqGR9qK0(Task.kt:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Executors$ImmediateExecutor.execute(Executors.kt:41)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.completeImmediately(Task.kt:358)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.access$completeImmediately(Task.kt:254)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.continueWith(Task.kt:133)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.continueWith$default(Task.kt:117)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.onSuccess$lambda$12(Task.kt:176)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task.$r8$lambda$l0wwo5AvbHxlwfI1R7CH_codxoo(Task.kt:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$$ExternalSyntheticLambda2.then(D8$$SyntheticClass:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.completeAfterTask$lambda$5(Task.kt:394)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion.$r8$lambda$IPpysnehFwANEiW061YzapkMdoE(Task.kt:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at com.facebook.react.runtime.internal.bolts.Task$Companion$$ExternalSyntheticLambda4.run(D8$$SyntheticClass:0)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1571)
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: Caused by: java.lang.ClassNotFoundException: expo.modules.kotlin.types.AnyTypeProvider
+09-25 23:56:27.944 15838 15857 E AndroidRuntime: 	... 38 more
+09-25 23:56:28.099   701  2554 E ConsumerBase: [ImageReader-864x1920f1m1-701-35] abandonLocked: ConsumerBase is abandoned!
+09-25 23:56:28.345   701  1190 E ConsumerBase: [ImageReader-864x1920f1m1-701-36] abandonLocked: ConsumerBase is abandoned!
+09-25 23:56:28.379   701  2554 E WindowOrganizerController: Attempting to externally change a non-organized container: Task{4aca587 #36 type=standard A=10233:com.fatihspy.kampussorunbildirim}={handlePackageUpdate:false,} playercount=2 taskorg=android.window.ITaskOrganizer$Stub$Proxy@77e3f51
+09-25 23:56:28.602 15767 15767 E libnfc_nci: Timeout waiting for NFC AIDL service (future).
+09-25 23:56:28.602 15767 15767 E libnfc_nci: Exit current process to recover.
+09-25 23:56:28.953   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 1 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:30.065   701  3885 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+09-25 23:56:30.108 15896 15896 E android.hardware.uwb: uwb_default_hal: panicked at hardware/interfaces/uwb/aidl/default/src/uwb_chip.rs:56:14:
+09-25 23:56:30.108 15896 15896 E android.hardware.uwb: failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }
+09-25 23:56:30.108 15896 15896 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 15896 (android.hardwar), pid 15896 (android.hardwar)
+09-25 23:56:30.121 15905 15905 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+09-25 23:56:30.121 15905 15905 F DEBUG   : Build fingerprint: 'google/sdk_gphone16k_x86_64/emu64xa16k:17/CP41.260828.004.A7/16296984:user/dev-keys'
+09-25 23:56:30.121 15905 15905 F DEBUG   : Kernel Release: '6.12.81-android16-6-g4f69fc7b210c-ab16167562'
+09-25 23:56:30.121 15905 15905 F DEBUG   : Revision: '0'
+09-25 23:56:30.121 15905 15905 F DEBUG   : ABI: 'x86_64'
+09-25 23:56:30.121 15905 15905 F DEBUG   : Timestamp: 2026-09-25 23:56:30.117393289+0000
+09-25 23:56:30.121 15905 15905 F DEBUG   : Process uptime: 1s
+09-25 23:56:30.121 15905 15905 F DEBUG   : Page size: 16384 bytes
+09-25 23:56:30.121 15905 15905 F DEBUG   : Executable: /vendor/bin/hw/android.hardware.uwb-service
+09-25 23:56:30.121 15905 15905 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+09-25 23:56:30.121 15905 15905 F DEBUG   : pid: 15896, ppid: 1, tid: 15896, name: android.hardwar  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+09-25 23:56:30.121 15905 15905 F DEBUG   : uid: 1083
+09-25 23:56:30.121 15905 15905 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+09-25 23:56:30.121 15905 15905 F DEBUG   : Abort message: 'failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }'
+09-25 23:56:30.121 15905 15905 F DEBUG   : 
+09-25 23:56:30.121 15905 15905 F DEBUG   :     rax 0000000000000000  rbx 0000000000003e18  rcx 00007f9ca332706d  rdx 0000000000000006
+09-25 23:56:30.121 15905 15905 F DEBUG   :     r8  00007ff18ce76470  r9  00007ff18ce76470  r10 00007ff18ce76230  r11 0000000000000207
+09-25 23:56:30.121 15905 15905 F DEBUG   :     r12 0000000000000000  r13 00007ff18ce763d0  r14 0000000000003e18  r15 00007ff18ce76230
+09-25 23:56:30.121 15905 15905 F DEBUG   :     rdi 0000000000003e18  rsi 0000000000003e18
+09-25 23:56:30.121 15905 15905 F DEBUG   :     rbp 00007ff18ce762e0  rsp 00007ff18ce76230  rip 00007f9ca332706d  err 0000000000000000
+09-25 23:56:30.121 15905 15905 F DEBUG   : 
+09-25 23:56:30.121 15905 15905 F DEBUG   : 18 total frames
+09-25 23:56:30.121 15905 15905 F DEBUG   : backtrace:
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #00 pc 000000000005b06d  /apex/com.android.runtime/lib64/bionic/libc.so (abort+189) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #01 pc 000000000003ed09  /vendor/bin/hw/android.hardware.uwb-service (std::sys::pal::unix::abort_internal+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #02 pc 000000000003c488  /vendor/bin/hw/android.hardware.uwb-service (std::process::abort+8) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #03 pc 0000000000038e89  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_abort+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #04 pc 000000000002d262  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_start_panic+18) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #05 pc 0000000000038e79  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_panic+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #06 pc 000000000003c72f  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_with_hook+260) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #07 pc 0000000000038516  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_handler::{closure#0}+70) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #08 pc 0000000000038eab  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_begin_unwind+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #09 pc 00000000000253db  /vendor/bin/hw/android.hardware.uwb-service (core::panicking::panic_fmt+43) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #10 pc 0000000000025261  /vendor/bin/hw/android.hardware.uwb-service (core::result::unwrap_failed+81) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #11 pc 00000000000641af  /vendor/bin/hw/android.hardware.uwb-service (<uwb_default_hal::uwb_chip::UwbChip>::new::{closure#0}+7999) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #12 pc 000000000006865a  /vendor/bin/hw/android.hardware.uwb-service (<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>, <uwb_default_hal::uwb::Uwb>::from_chips<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>>::{closure#0}> as core::iter::traits::iterator::Iterator>::next+3434) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #13 pc 0000000000065c77  /vendor/bin/hw/android.hardware.uwb-service (uwb_default_hal::main+791) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #14 pc 00000000000619fb  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start::<core::result::Result<(), anyhow::Error>>::{closure#0}+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #15 pc 000000000003bce6  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start_internal+534) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #16 pc 000000000006b193  /vendor/bin/hw/android.hardware.uwb-service (main+51) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:30.121 15905 15905 F DEBUG   :       #17 pc 00000000000c3c10  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+112) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:30.121 15905 15905 F DEBUG   : 
+09-25 23:56:30.121 15905 15905 F DEBUG   : Note: To display stack pointer information, use the pbtombstone tool:
+09-25 23:56:30.121 15905 15905 F DEBUG   :         pbtombstone --display-sp tombstone_XX.pb
+09-25 23:56:30.122   395   395 E tombstoned: Tombstone written to: tombstone_14
+09-25 23:56:30.123   701   840 E NativeTombstoneManager: Tombstone's UID (1083) not an app, ignoring
+09-25 23:56:31.667 15879 15879 E libnfc_nci: Timeout waiting for NFC AIDL service (future).
+09-25 23:56:31.667 15879 15879 E libnfc_nci: Exit current process to recover.
+09-25 23:56:31.955   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 1 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:34.743 15912 15912 E libnfc_nci: Timeout waiting for NFC AIDL service (future).
+09-25 23:56:34.744 15912 15912 E libnfc_nci: Exit current process to recover.
+09-25 23:56:34.850  1410  1560 E SatelliteController: isSatelliteEnabled: mIsSatelliteEnabled=null
+09-25 23:56:34.958   701  1118 E WifiDataStall: Ignore this poll. newStats: null txLinkSpeedMbps: 1 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@333f3b2
+09-25 23:56:35.107 15947 15947 E android.hardware.uwb: uwb_default_hal: panicked at hardware/interfaces/uwb/aidl/default/src/uwb_chip.rs:56:14:
+09-25 23:56:35.107 15947 15947 E android.hardware.uwb: failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }
+09-25 23:56:35.107 15947 15947 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 15947 (android.hardwar), pid 15947 (android.hardwar)
+09-25 23:56:35.122 15955 15955 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+09-25 23:56:35.122 15955 15955 F DEBUG   : Build fingerprint: 'google/sdk_gphone16k_x86_64/emu64xa16k:17/CP41.260828.004.A7/16296984:user/dev-keys'
+09-25 23:56:35.122 15955 15955 F DEBUG   : Kernel Release: '6.12.81-android16-6-g4f69fc7b210c-ab16167562'
+09-25 23:56:35.122 15955 15955 F DEBUG   : Revision: '0'
+09-25 23:56:35.122 15955 15955 F DEBUG   : ABI: 'x86_64'
+09-25 23:56:35.122 15955 15955 F DEBUG   : Timestamp: 2026-09-25 23:56:35.117765487+0000
+09-25 23:56:35.122 15955 15955 F DEBUG   : Process uptime: 1s
+09-25 23:56:35.122 15955 15955 F DEBUG   : Page size: 16384 bytes
+09-25 23:56:35.122 15955 15955 F DEBUG   : Executable: /vendor/bin/hw/android.hardware.uwb-service
+09-25 23:56:35.122 15955 15955 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+09-25 23:56:35.122 15955 15955 F DEBUG   : pid: 15947, ppid: 1, tid: 15947, name: android.hardwar  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+09-25 23:56:35.122 15955 15955 F DEBUG   : uid: 1083
+09-25 23:56:35.122 15955 15955 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+09-25 23:56:35.122 15955 15955 F DEBUG   : Abort message: 'failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }'
+09-25 23:56:35.122 15955 15955 F DEBUG   : 
+09-25 23:56:35.122 15955 15955 F DEBUG   :     rax 0000000000000000  rbx 0000000000003e4b  rcx 00007cacd9b2b06d  rdx 0000000000000006
+09-25 23:56:35.122 15955 15955 F DEBUG   :     r8  00007ffcb74906e0  r9  00007ffcb74906e0  r10 00007ffcb74904a0  r11 0000000000000207
+09-25 23:56:35.122 15955 15955 F DEBUG   :     r12 0000000000000000  r13 00007ffcb7490640  r14 0000000000003e4b  r15 00007ffcb74904a0
+09-25 23:56:35.122 15955 15955 F DEBUG   :     rdi 0000000000003e4b  rsi 0000000000003e4b
+09-25 23:56:35.122 15955 15955 F DEBUG   :     rbp 00007ffcb7490550  rsp 00007ffcb74904a0  rip 00007cacd9b2b06d  err 0000000000000000
+09-25 23:56:35.122 15955 15955 F DEBUG   : 
+09-25 23:56:35.122 15955 15955 F DEBUG   : 18 total frames
+09-25 23:56:35.122 15955 15955 F DEBUG   : backtrace:
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #00 pc 000000000005b06d  /apex/com.android.runtime/lib64/bionic/libc.so (abort+189) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #01 pc 000000000003ed09  /vendor/bin/hw/android.hardware.uwb-service (std::sys::pal::unix::abort_internal+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #02 pc 000000000003c488  /vendor/bin/hw/android.hardware.uwb-service (std::process::abort+8) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #03 pc 0000000000038e89  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_abort+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #04 pc 000000000002d262  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_start_panic+18) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #05 pc 0000000000038e79  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_panic+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #06 pc 000000000003c72f  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_with_hook+260) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #07 pc 0000000000038516  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_handler::{closure#0}+70) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #08 pc 0000000000038eab  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_begin_unwind+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #09 pc 00000000000253db  /vendor/bin/hw/android.hardware.uwb-service (core::panicking::panic_fmt+43) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #10 pc 0000000000025261  /vendor/bin/hw/android.hardware.uwb-service (core::result::unwrap_failed+81) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #11 pc 00000000000641af  /vendor/bin/hw/android.hardware.uwb-service (<uwb_default_hal::uwb_chip::UwbChip>::new::{closure#0}+7999) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #12 pc 000000000006865a  /vendor/bin/hw/android.hardware.uwb-service (<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>, <uwb_default_hal::uwb::Uwb>::from_chips<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>>::{closure#0}> as core::iter::traits::iterator::Iterator>::next+3434) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #13 pc 0000000000065c77  /vendor/bin/hw/android.hardware.uwb-service (uwb_default_hal::main+791) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #14 pc 00000000000619fb  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start::<core::result::Result<(), anyhow::Error>>::{closure#0}+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #15 pc 000000000003bce6  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start_internal+534) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #16 pc 000000000006b193  /vendor/bin/hw/android.hardware.uwb-service (main+51) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+09-25 23:56:35.122 15955 15955 F DEBUG   :       #17 pc 00000000000c3c10  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+112) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+09-25 23:56:35.122 15955 15955 F DEBUG   : 
+09-25 23:56:35.122 15955 15955 F DEBUG   : Note: To display stack pointer information, use the pbtombstone tool:
+09-25 23:56:35.122 15955 15955 F DEBUG   :         pbtombstone --display-sp tombstone_XX.pb
+09-25 23:56:35.123   701   840 E NativeTombstoneManager: Tombstone's UID (1083) not an app, ignoring
+09-25 23:56:35.123   395   395 E tombstoned: Tombstone written to: tombstone_15

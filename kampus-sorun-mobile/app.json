@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -13,7 +14,31 @@
       }
     },
     "android": {
-      "permissions": ["CAMERA", "ACCESS_FINE_LOCATION"]
+      "package": "com.fatihspy.kampussorunbildirim",
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/logos/ege-universitesi.png",
+          "imageWidth": 220,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4ad9f492-9335-44a2-a5d9-1e25530f0214"
+      }
     }
   }
 }

@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvo
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
 import { getErrorMessage } from '../api/client';
+import LogoLockup from '../components/LogoLockup';
 
 export default function LoginScreen({ navigation }) {
   const { login } = useAuth();
@@ -31,9 +32,7 @@ export default function LoginScreen({ navigation }) {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <View style={styles.container}>
-        <View style={styles.logoCircle}>
-          <Ionicons name="megaphone" size={32} color="#fff" />
-        </View>
+        <LogoLockup size={64} style={{ marginBottom: 16 }} />
         <Text style={styles.title}>Kampüs Sorun Bildirim</Text>
         <Text style={styles.subtitle}>Ege Üniversitesi hesabınızla giriş yapın</Text>
 

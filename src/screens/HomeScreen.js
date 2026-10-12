@@ -5,6 +5,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import api, { getErrorMessage } from '../api/client';
 import { useAuth } from '../context/AuthContext';
+import LogoLockup from '../components/LogoLockup';
 
 const STATUS_LABELS = {
   yeni: 'Yeni',
@@ -43,6 +44,7 @@ function initials(name = '') {
 
 export default function HomeScreen({ navigation }) {
   const { user, logout } = useAuth();
+  const isStaff = user?.role === 'personel' || user?.role === 'yonetici';
   const [reports, setReports] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -78,6 +80,8 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      <LogoLockup size={26} style={styles.topLogos} />
+
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <View style={styles.avatar}>
@@ -119,7 +123,7 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Raporlarım</Text>
+        <Text style={styles.sectionTitle}>{isStaff ? 'Tüm Raporlar' : 'Raporlarım'}</Text>
         {visibleReports.length > 0 && <Text style={styles.sectionCount}>{visibleReports.length}</Text>}
       </View>
 
@@ -180,6 +184,7 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
+  topLogos: { marginTop: 4, marginBottom: 4 },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',

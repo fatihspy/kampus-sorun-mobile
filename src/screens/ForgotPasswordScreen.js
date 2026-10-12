@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import api, { getErrorMessage } from '../api/client';
+import LogoLockup from '../components/LogoLockup';
 
 export default function ForgotPasswordScreen({ navigation }) {
   const [step, setStep] = useState(1); // 1: e-posta gir, 2: kod + yeni şifre gir
@@ -62,9 +63,7 @@ export default function ForgotPasswordScreen({ navigation }) {
   return (
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        <View style={styles.logoCircle}>
-          <Ionicons name="key" size={28} color="#fff" />
-        </View>
+        <LogoLockup size={56} style={{ marginBottom: 16 }} />
         <Text style={styles.title}>Şifremi Unuttum</Text>
         <Text style={styles.subtitle}>
           {step === 1
