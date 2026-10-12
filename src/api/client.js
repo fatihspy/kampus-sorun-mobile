@@ -2,7 +2,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Backend artık Render'da kalıcı olarak çalışıyor — yerel IP/hotspot ayarına gerek yok.
-const BASE_URL = 'https://kampus-sorun.onrender.com/api';
+const BASE_URL = 'https://kampus-sorun-eu.onrender.com/api';
 
 // Fotoğraf gibi /api altında olmayan kaynaklar için sunucu kök adresi
 export const SERVER_URL = BASE_URL.replace(/\/api$/, '');
