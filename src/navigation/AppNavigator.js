@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
+import VerifyEmailScreen from '../screens/VerifyEmailScreen';
 import CreateReportScreen from '../screens/CreateReportScreen';
 import ReportDetailScreen from '../screens/ReportDetailScreen';
 import MainTabs from './MainTabs';
@@ -29,6 +30,7 @@ function AuthStack() {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+      <Stack.Screen name="VerifyEmail" component={VerifyEmailScreen} />
     </Stack.Navigator>
   );
 }

@@ -107,7 +107,7 @@ export default function CreateReportScreen({ navigation }) {
       });
 
       Alert.alert('Gönderildi', 'Raporunuz başarıyla iletildi.', [
-        { text: 'Tamam', onPress: () => navigation.navigate('Home') }
+        { text: 'Tamam', onPress: () => navigation.navigate('MainTabs', { screen: 'Home' }) }
       ]);
     } catch (err) {
       Alert.alert('Gönderilemedi', getErrorMessage(err));

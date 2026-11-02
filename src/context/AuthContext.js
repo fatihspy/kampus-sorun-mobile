@@ -24,8 +24,14 @@ export function AuthProvider({ children }) {
     setUser(data.user);
   };
 
+  // Kayıt artık giriş yaptırmaz: e-postaya doğrulama kodu gider, giriş verifyEmail ile olur
   const register = async (name, email, password) => {
     const { data } = await api.post('/auth/register', { name, email, password });
+    return data;
+  };
+
+  const verifyEmail = async (email, code) => {
+    const { data } = await api.post('/auth/verify-email', { email, code });
     await AsyncStorage.setItem('token', data.token);
     await AsyncStorage.setItem('user', JSON.stringify(data.user));
     setUser(data.user);
@@ -37,7 +43,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, register, verifyEmail, logout }}>
       {children}
     </AuthContext.Provider>
   );

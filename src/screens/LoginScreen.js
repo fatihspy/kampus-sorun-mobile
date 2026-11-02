@@ -18,8 +18,16 @@ export default function LoginScreen({ navigation }) {
     }
     setLoading(true);
     try {
-      await login(email, password);
+      await login(email.trim(), password);
     } catch (err) {
+      // E-postası doğrulanmamış hesap: doğrulama ekranına yönlendir ve yeni kod gönder
+      if (err.response?.data?.needsVerification) {
+        navigation.navigate('VerifyEmail', {
+          email: err.response.data.email || email.trim().toLowerCase(),
+          autoResend: true
+        });
+        return;
+      }
       Alert.alert('Giriş başarısız', getErrorMessage(err));
     } finally {
       setLoading(false);

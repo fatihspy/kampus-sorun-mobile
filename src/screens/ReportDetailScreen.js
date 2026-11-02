@@ -49,7 +49,7 @@ function InfoRow({ icon, label, value }) {
   );
 }
 
-export default function ReportDetailScreen({ route }) {
+export default function ReportDetailScreen({ route, navigation }) {
   const { id } = route.params;
   const { user } = useAuth();
   const [report, setReport] = useState(null);
@@ -60,8 +60,10 @@ export default function ReportDetailScreen({ route }) {
   const [voting, setVoting] = useState(false);
   const [updatingStatus, setUpdatingStatus] = useState(false);
   const [resolving, setResolving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const isStaff = user?.role === 'personel' || user?.role === 'yonetici';
+  const isOwner = !!report && report.reporter?._id === user?.id;
 
   const fetchReport = async () => {
     try {
@@ -140,6 +142,31 @@ export default function ReportDetailScreen({ route }) {
     } finally {
       setVoting(false);
     }
+  };
+
+  const deleteReport = () => {
+    Alert.alert(
+      'Raporu sil',
+      'Bu raporu silmek istediğine emin misin? Bu işlem geri alınamaz.',
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        {
+          text: 'Sil',
+          style: 'destructive',
+          onPress: async () => {
+            setDeleting(true);
+            try {
+              await api.delete(`/reports/${id}`);
+              navigation.navigate('MainTabs', { screen: 'Home' });
+            } catch (err) {
+              Alert.alert('Silinemedi', getErrorMessage(err));
+            } finally {
+              setDeleting(false);
+            }
+          }
+        }
+      ]
+    );
   };
 
   const submitComment = async () => {
@@ -331,6 +358,22 @@ export default function ReportDetailScreen({ route }) {
               </TouchableOpacity>
             </View>
           </View>
+
+          {isOwner ? (
+            <TouchableOpacity
+              style={[styles.deleteBtn, deleting && { opacity: 0.6 }]}
+              onPress={deleteReport}
+              disabled={deleting}
+              activeOpacity={0.85}
+            >
+              {deleting ? (
+                <ActivityIndicator size="small" color="#dc2626" />
+              ) : (
+                <Ionicons name="trash-outline" size={16} color="#dc2626" style={{ marginRight: 8 }} />
+              )}
+              <Text style={styles.deleteBtnText}>{deleting ? 'Siliniyor...' : 'Raporu Sil'}</Text>
+            </TouchableOpacity>
+          ) : null}
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -438,5 +481,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e3a8a',
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+
+  deleteBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#fca5a5',
+    borderRadius: 10,
+    paddingVertical: 12,
+    marginTop: 24,
+    backgroundColor: '#fff'
+  },
+  deleteBtnText: { color: '#dc2626', fontWeight: '700', fontSize: 14 }
 });

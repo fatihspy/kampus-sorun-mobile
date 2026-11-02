@@ -19,7 +19,9 @@ export default function RegisterScreen({ navigation }) {
     }
     setLoading(true);
     try {
-      await register(name, email, password);
+      const cleanEmail = email.trim().toLowerCase();
+      await register(name.trim(), cleanEmail, password);
+      navigation.navigate('VerifyEmail', { email: cleanEmail });
     } catch (err) {
       Alert.alert('Kayıt başarısız', getErrorMessage(err));
     } finally {
